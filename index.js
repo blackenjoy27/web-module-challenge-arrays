@@ -148,7 +148,6 @@ function removeFlavorByName(arry,flavorToRemove){
     const index = arry.indexOf(flavorToRemove);
     arry.splice(index,1);
     return arry;
-    /*your code here*/
 }
 
 
@@ -173,7 +172,14 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
+function filterByWord(arry, flavor){
+    let filteredArray = []
+    for(let i= 0;i<arry.length;i++){
+        if(arry[i].includes(flavor)){
+            filteredArray.push(arry[i]);
+        }
+    }
+    return filteredArray;
     /*your code here*/
 }
 
