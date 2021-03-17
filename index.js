@@ -69,7 +69,8 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
+function is31Flavors(arry){
+    return arry.length===31?true:false;
    /*your code here*/
 }
 
@@ -86,7 +87,9 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
+function addFlavor(arry,newFlavors){
+    arry.unshift(newFlavors);
+    return arry;
    /*your code here*/
 }
 
