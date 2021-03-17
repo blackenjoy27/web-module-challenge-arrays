@@ -46,12 +46,7 @@ Use the copy function below to do the following:
 */
 
 function copy(arry){
-    let newArry =[];
-    for(let i=0;i<arry.length;i++){
-        newArry.push(arry[i]);
-    }
-    return newArry;
-    /*your code here*/
+    return [...arry];
 }    
 
 
@@ -196,7 +191,19 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
+function getAverageWordLength(arry){
+    let numOfWords = 0;
+    for(let i= 0;i<arry.length;i++){
+        let str = arry[i];
+
+        while(str.includes(" ")){        // Chocolate Almond ->Almond
+            numOfWords++;
+            let space = str.indexOf(" ");
+            str = str.slice(space+1);
+        }
+        numOfWords++;    // there is at least one word;
+    }
+    return Math.round(numOfWords/arry.length);
     /*code here*/
 }
 
@@ -212,12 +219,6 @@ Use the getRandomFlavors function and new arrays below to do the following:
 
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
-
-
-function getRandomFlavors(/*code here*/){
-    /*code here*/
-}
-
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
     "Date night",
@@ -298,6 +299,27 @@ const regionalFlavors = [
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"
 ]
+
+
+function getRandomFlavors(fla1,fla2,fla3,fla4){
+    let flavors = [fla1,fla2,fla3,fla4];
+    let randomFlavors = [];
+
+    while(randomFlavors.length!==31){
+        let randomIndex = Math.floor(Math.random()*4);  // pick one of the 4 categories
+        let randomOne = [...flavors[randomIndex]];   // have a copy of it
+        
+        randomIndex = Math.floor(Math.random()*31);  // pick one of the 31 flavors
+        randomOne = randomOne[randomIndex];
+        randomFlavors.push(randomOne);
+    }
+    return randomFlavors;
+    /*code here*/
+}
+console.log(getRandomFlavors(originalFlavors,newFlavors,seasonalFlavors,regionalFlavors));
+
+
+
 
 
 
